@@ -3,7 +3,7 @@ print("BMI Calculator")
 your_height  = float(input("Enter your height in meters: "))
 your_weight  = float(input("Enter your weight in kilograms: "))
 
-BMI= weight / (height ** 2)
+BMI= your_weight / (your_height ** 2)
 
 if BMI < 18.5:
     category = " Underweight"
