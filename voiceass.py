@@ -2,28 +2,28 @@ import webbrowser
 import datetime
 import sys
 
-def respond(text):
-    print("Assistant: ",text)
+def respond(txt):
+    print("Assistant: ",txt)
 
 
-def handle_command(command):
-    command = command.lower().strip()
-    if command in ("hi", "hello", "Hey there!"):
+def handle_command(cmd):
+    cmd = cmd.lower().strip()
+    if cmd in ("hi", "hello", "Hey there!"):
         respond("Hello! How are you?")
-    elif "time" in command:
+    elif "time" in cmd:
         now = datetime.datetime.now().strftime("%H:%M:%S")
         respond(f"Today's time is: {now}")
-    elif "date" in command:
+    elif "date" in cmd:
         today = datetime.date.today().strftime("%Y-%m-%d")
         respond(f"Today's date is: {today}")
-    elif command.startswith("search"):
-        q = command.replace("search", "").strip()
+    elif cmd.startswith("search"):
+        q = cmd.replace("search", "").strip()
         if q:
             respond(f"Searching for:  {q}")
             webbrowser.open(f"https://www.google.com/search?q={q}")
         else:
             respond("Type somethingf else")
-    elif command in ("exit", "quit", "bye"):
+    elif cmd in ("exit", "quit", "bye"):
         respond("Good Bye!")
         sys.exit(0)
     else:
