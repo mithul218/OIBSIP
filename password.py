@@ -3,22 +3,22 @@ import string
 
 length = int(input("Enter the desired password length: "))
 
-include_letters = input("Include letters? (y/n): ").lower() == 'y'
-include_digits = input("Include digits? (y/n): ").lower() == 'y'
-include_special = input("Include special characters? (y/n): ").lower() == 'y'
+letters = input("Include letters? (y/n): ").lower()
+digits = input("Include digits? (y/n): ").lower() 
+special = input("Include special characters? (y/n): ").lower()
 
-character_pool = ""
+characters= ""
 
-if include_letters:
-    character_pool += string.ascii_letters
-if include_digits:
-    character_pool += string.digits
-if include_special:
-    character_pool += string.punctuation
+if letters == 'y':
+    characters += string.ascii_letters
+if digits == 'y':
+    characters += string.digits
+if special == 'y':
+    characters += string.punctuation
 
-if not character_pool:
+if not characters:
     print("No character types selected. Cannot generate password.")
     exit()
 
-password = ''.join(random.choice(character_pool) for _ in range(length))
+password = ''.join(random.choice(characters) for _ in range(length))
 print(f"Generated password: {password}")
